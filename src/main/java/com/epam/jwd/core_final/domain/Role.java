@@ -24,14 +24,41 @@ public enum Role implements BaseEntity {
      */
     @Override
     public String getName() {
-        return null;
+        if(id==1){
+            return MISSION_SPECIALIST.getName();
+        }
+        else if(id ==2){
+            return FLIGHT_ENGINEER.getName();
+        }
+        else if(id==3){
+            return PILOT.getName();
+        }
+        else {
+            return COMMANDER.getName();
+        }
     }
+
+
 
     /**
      * todo via java.lang.enum methods!
      * @throws UnknownEntityException if such id does not exist
      */
     public static Role resolveRoleById(int id) {
-        return null;
+        switch (id){
+            case 1:{
+                return Role.MISSION_SPECIALIST;
+            }
+            case 2:{
+                return Role.FLIGHT_ENGINEER;
+            }
+            case 3:{
+                return Role.PILOT;
+            }
+            case 4:{
+                return Role.COMMANDER;
+            }
+            default: throw new UnknownEntityException(Integer.toString(id));
+        }
     }
 }
